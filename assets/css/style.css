@@ -1,0 +1,14 @@
+.box div {
+    width: 100px;
+    height: 100px;
+    background: #ffa500;
+   
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    min-height: 100vh;
+}

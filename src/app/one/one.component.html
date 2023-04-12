@@ -1,0 +1,28 @@
+<ng-container *ngIf="!errorsInApi">
+<table class="table table-bordered w-100" *ngIf="listOfTask?.length && listOfTask; else elsePart">
+    <thead>
+      <tr>
+        <th scope="col">Sr.No.</th>
+        <th scope="col"></th>
+        <th scope="col">Task Name</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of listOfTask ; let i = index">
+        <td class="text-center">{{i+1}}</td>
+        <td><input type="checkbox" (change)="onClicked(data)" [checked]="data.completed"></td>
+        <td>
+          <h5 [ngClass]="{'line-through':data.completed }">{{data.title}}</h5>
+        </td>
+        <td [ngClass]="{'completedColor':data.completed }">{{data.completed ? 'Completed' : 'Pending'}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <ng-template #elsePart>
+    Loading...
+  </ng-template>
+</ng-container>
+<ng-container *ngIf="errorsInApi">
+    <h2>Something Went Wrong...</h2>
+  </ng-container>
